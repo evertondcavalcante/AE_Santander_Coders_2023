@@ -261,11 +261,11 @@ models:
       - name: "listing_id"
         tests:
           - not_null
-      - name: "id"
+      - name: "review_id"
         tests:
           - not_null
           - unique
-      - name: "date"
+      - name: "review_date"
         tests:
           - not_null
       - name: "reviewer_id"
