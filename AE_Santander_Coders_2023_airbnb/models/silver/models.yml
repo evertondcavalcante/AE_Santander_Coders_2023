@@ -94,7 +94,11 @@ models:
         tests:
           - not_null
       - name: "neighbourhood"
+        tests:
+          - not_null
       - name: "neighbourhood_cleansed"
+        tests:
+          - not_null
       - name: "latitude"
         tests:
           - not_null
