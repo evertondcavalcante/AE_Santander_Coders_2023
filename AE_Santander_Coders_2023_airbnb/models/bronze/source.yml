@@ -1,0 +1,10 @@
+version: 2
+
+sources:
+  - name: dados_stage
+    database: BD_AIRBNB
+    schema: public
+    tables:
+      - name: calendar
+      - name: listings
+      - name: reviews

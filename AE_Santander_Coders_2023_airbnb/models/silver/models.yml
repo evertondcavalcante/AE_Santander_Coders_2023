@@ -1,0 +1,210 @@
+version: 2
+
+models:
+  - name: calendar_silver
+    database: BD_AIRBNB
+    schema: public
+    columns:
+      - name: "listing_id"
+        tests:
+          - unique
+          - not_null
+      - name: "date"
+        tests:
+          - not_null
+      - name: "available"
+        tests:
+          - not_null
+      - name: "price"
+        tests:
+          - not_null
+      - name: "minimum_nights"
+        tests:
+          - not_null
+      - name: "maximum_nights"
+        tests:
+          - not_null
+      - name: "created_at"
+        tests:
+          - not_null
+  - name: listings_silver
+    database: BD_AIRBNB
+    schema: public
+    columns:
+      - name: "id"
+        tests:
+          - unique
+          - not_null
+      - name: "listing_url"
+        tests:
+          - not_null
+      - name: "last_scraped"
+      - name: "source"
+        tests:
+          - not_null
+      - name: "name"
+        tests:
+          - not_null
+      - name: "neighborhood_overview"
+      - name: "picture_url"
+      - name: "host_id"
+        tests:
+          - not_null
+      - name: "host_url"
+        tests:
+          - not_null
+      - name: "host_name"
+        tests:
+          - not_null
+      - name: "host_since"
+        tests:
+          - not_null
+      - name: "host_location"
+      - name: "host_about"
+      - name: "host_response_time"
+      - name: "host_response_rate"
+      - name: "host_acceptance_rate"
+      - name: "host_is_superhost"
+        tests:
+          - not_null
+      - name: "host_thumbnail_url"
+        tests:
+          - not_null
+      - name: "host_picture_url"
+        tests:
+          - not_null
+      - name: "host_neighbourhood"
+      - name: "host_listings_count"
+        tests:
+          - not_null
+      - name: "host_total_listings_count"
+        tests:
+          - not_null
+      - name: "host_verifications"
+        tests:
+          - not_null
+      - name: "host_has_profile_pic"
+        tests:
+          - not_null
+      - name: "host_identity_verified"
+        tests:
+          - not_null
+      - name: "neighbourhood"
+      - name: "neighbourhood_cleansed"
+      - name: "latitude"
+        tests:
+          - not_null
+      - name: "longitude"
+        tests:
+          - not_null
+      - name: "property_type"
+        tests:
+          - not_null
+      - name: "room_type"
+        tests:
+          - not_null
+      - name: "accommodates"
+        tests:
+          - not_null
+      - name: "bathrooms_text"
+      - name: "beds"
+        tests:
+          - not_null
+      - name: "price"
+        tests:
+          - not_null
+      - name: "minimum_nights"
+        tests:
+          - not_null
+      - name: "maximum_nights"
+        tests:
+          - not_null
+      - name: "minimum_minimum_nights"
+        tests:
+          - not_null
+      - name: "maximum_minimum_nights"
+        tests:
+          - not_null
+      - name: "minimum_maximum_nights"
+        tests:
+          - not_null
+      - name: "maximum_maximum_nights"
+        tests:
+          - not_null
+      - name: "minimum_nights_avg_ntm"
+        tests:
+          - not_null
+      - name: "maximum_nights_avg_ntm"
+        tests:
+          - not_null
+      - name: "has_availability"
+        tests:
+          - not_null
+      - name: "availability_30"
+        tests:
+          - not_null
+      - name: "availability_60"
+        tests:
+          - not_null
+      - name: "availability_90"
+        tests:
+          - not_null
+      - name: "availability_365"
+        tests:
+          - not_null
+      - name: "calendar_last_scraped"
+        tests:
+          - not_null
+      - name: "number_of_reviews"
+        tests:
+          - not_null
+      - name: "number_of_reviews_ltm"
+        tests:
+          - not_null
+      - name: "number_of_reviews_l30d"
+        tests:
+          - not_null
+      - name: "first_review"
+      - name: "last_review"
+      - name: "review_scores_rating"
+      - name: "review_scores_accuracy"
+      - name: "review_scores_cleanliness"
+      - name: "review_scores_checkin"
+      - name: "review_scores_communication"
+      - name: "review_scores_location"
+      - name: "review_scores_value"
+      - name: "instant_bookable"
+        tests:
+          - not_null
+      - name: "calculated_host_listings_count"
+      - name: "calculated_host_listings_count_entire_homes"
+      - name: "calculated_host_listings_count_private_rooms"
+      - name: "calculated_host_listings_count_shared_rooms"
+      - name: "reviews_per_month"
+      - name: "created_at"
+        tests:
+          - not_null
+  - name: reviews_silver
+    database: BD_AIRBNB
+    schema: public
+    columns:
+      - name: "listing_id"
+        tests:
+          - not_null
+      - name: "id"
+        tests:
+          - not_null
+          - unique
+      - name: "date"
+        tests:
+          - not_null
+      - name: "reviewer_id"
+        tests:
+          - not_null
+      - name: "reviewer_name"
+        tests:
+          - not_null
+      - name: "comments"
+      - name: "created_at"
+        tests:
+          - not_null

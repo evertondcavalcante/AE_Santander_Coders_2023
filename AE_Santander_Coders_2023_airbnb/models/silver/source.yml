@@ -1,0 +1,10 @@
+version: 2
+
+sources:
+  - name: dados_bronze
+    database: BD_AIRBNB
+    schema: public
+    tables:
+      - name: calendar_bronze
+      - name: listings_bronze
+      - name: reviews_bronze
