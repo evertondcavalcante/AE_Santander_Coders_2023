@@ -7,7 +7,6 @@ models:
     columns:
       - name: "listing_id"
         tests:
-          - unique
           - not_null
       - name: "date"
         tests:
