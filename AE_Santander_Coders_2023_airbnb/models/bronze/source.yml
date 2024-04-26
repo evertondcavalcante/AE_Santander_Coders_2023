@@ -5,6 +5,6 @@ sources:
     database: BD_AIRBNB
     schema: public
     tables:
-      - name: calendar
-      - name: listings
-      - name: reviews
+      - name: calendar_stage
+      - name: listings_stage
+      - name: reviews_stage
