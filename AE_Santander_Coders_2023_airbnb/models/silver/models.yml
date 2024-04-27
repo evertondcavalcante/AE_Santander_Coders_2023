@@ -2,289 +2,376 @@ version: 2
 
 models:
   - name: 2_calendar_silver
+    description: "Camada silver da tabela calendar"
     database: BD_AIRBNB
     schema: public
     columns:
       - name: "listing_id"
+        description: "Identificador do imóvel"
         tests:
           - not_null
       - name: "date"
+        description: "Data da disponibilidade"
         tests:
           - not_null
       - name: "available"
+        description: "Disponibilidade do imóvel"
         tests:
           - not_null
       - name: "price"
+        description: "Preço"
         tests:
           - not_null
           - check_value_less_than_or_equal_zero
       - name: "minimum_nights"
+        description: "Número mínimo de noites"
         tests:
           - not_null
           - check_value_less_than_or_equal_zero
       - name: "maximum_nights"
+        description: "Número máximo de noites"
         tests:
           - not_null
           - check_value_less_than_or_equal_zero
       - name: "created_at"
+        description: "Data de criação"
         tests:
           - not_null
   - name: 2_listings_silver
+    description: "Camada silver da tabela listings"
     database: BD_AIRBNB
     schema: public
     columns:
       - name: "id"
+        description: "Identificador do imóvel"
         tests:
           - unique
           - not_null
       - name: "listing_url"
+        description: "URL do imóvel no site"
         tests:
           - not_null
       - name: "last_scraped"
+        description: "Data da última raspagem"
       - name: "source"
+        description: "Fonte dos dados"
         tests:
           - not_null
       - name: "name"
+        description: "Nome do imóvel"
         tests:
           - not_null
       - name: "neighborhood_overview"
+        description: "Visão do bairro"
       - name: "picture_url"
+        description: "URL da imagem"
       - name: "host_id"
+        description: "Identificador do proprietário"
         tests:
           - not_null
       - name: "host_url"
+        description: "URL do proprietário"
         tests:
           - not_null
       - name: "host_name"
+        description: "Nome do proprietário"
         tests:
           - not_null
       - name: "host_since"
+        description: "Data de ingresso do proprietário"
         tests:
           - not_null
       - name: "host_location"
+        description: "Localização do proprietário"
       - name: "host_about"
+        description: "Sobre o proprietário"
       - name: "host_response_time"
+        description: "Tempo de resposta do proprietário"
       - name: "host_response_rate"
+        description: "Taxa de resposta do proprietário"
       - name: "host_acceptance_rate"
+        description: "Taxa de aceitação do proprietário"
       - name: "host_is_superhost"
+        description: "Proprietário é um superhost"
         tests:
           - not_null
       - name: "host_thumbnail_url"
+        description: "URL da miniatura do proprietário"
         tests:
           - not_null
       - name: "host_picture_url"
+        description: "URL da imagem do proprietário" 
         tests:
           - not_null
       - name: "host_neighbourhood"
+        description: "Vizinhança do proprietário"
       - name: "host_listings_count"
+        description: "Número de imóveis do proprietário"
         tests:
           - not_null
           - check_value_less_than_zero
       - name: "host_total_listings_count"
+        description: "Número total de imóveis do proprietário"
         tests:
           - not_null
           - check_value_less_than_zero
       - name: "host_verifications"
+        description: "Verificações do proprietário"
         tests:
           - not_null
       - name: "host_has_profile_pic"
+        description: "Proprietário tem foto de perfil"
         tests:
           - not_null
       - name: "host_identity_verified"
+        description: "Identidade do proprietário verificada"
         tests:
           - not_null
       - name: "neighbourhood"
+        description: "Vizinhança"
         tests:
           - not_null
       - name: "neighbourhood_cleansed"
+        description: "Vizinhança limpa"
         tests:
           - not_null
       - name: "latitude"
+        description: "Latitude"
         tests:
           - not_null
       - name: "longitude"
+        description: "Longitude"
         tests:
           - not_null
       - name: "property_type"
+        description: "Tipo de propriedade"
         tests:
           - not_null
       - name: "room_type"
+        description: "Tipo de quarto"
         tests:
           - not_null
       - name: "accommodates"
+        description: "Capacidade de acomodação"
         tests:
           - not_null
           - check_value_less_than_or_equal_zero
       - name: "bathrooms_text"
+        description: "Número de banheiros no formato de texto"
+        tests:
+          - not_null
       - name: "beds"
+        description: "Número de camas"
         tests:
           - not_null
           - check_value_less_than_zero
       - name: "price"
+        description: "Preço"
         tests:
           - not_null
           - check_value_less_than_or_equal_zero
       - name: "minimum_nights"
+        description: "Número mínimo de noites"
         tests:
           - not_null
           - check_value_less_than_or_equal_zero
       - name: "maximum_nights"
+        description: "Número máximo de noites"
         tests:
           - not_null
           - check_value_less_than_zero
       - name: "minimum_minimum_nights"
+        description: "Número mínimo de noites mínimo"
         tests:
           - not_null
           - check_value_less_than_or_equal_zero
       - name: "maximum_minimum_nights"
+        description: "Número mínimo de noites máximo"
         tests:
           - not_null
           - check_value_less_than_or_equal_zero
       - name: "minimum_maximum_nights"
+        description: "Número máximo de noites mínimo"
         tests:
           - not_null
           - check_value_less_than_or_equal_zero
       - name: "maximum_maximum_nights"
+        description: "Número máximo de noites máximo"
         tests:
           - not_null
           - check_value_less_than_or_equal_zero
       - name: "minimum_nights_avg_ntm"
+        description: "Número médio de noites mínimo"
         tests:
           - not_null
           - check_value_less_than_or_equal_zero
       - name: "maximum_nights_avg_ntm"
+        description: "Número médio de noites máximo"
         tests:
           - not_null
           - check_value_less_than_or_equal_zero
       - name: "has_availability"
+        description: "O imóvel está disponível"
         tests:
           - not_null
       - name: "availability_30"
+        description: "Disponibilidade para 30 dias"
         tests:
           - not_null
           - dbt_expectations.expect_column_values_to_be_between:
               min_value: 0
               max_value: 30
       - name: "availability_60"
+        description: "Disponibilidade para 60 dias"
         tests:
           - not_null
           - dbt_expectations.expect_column_values_to_be_between:
               min_value: 0
               max_value: 60
       - name: "availability_90"
+        description: "Disponibilidade para 90 dias"
         tests:
           - not_null
           - dbt_expectations.expect_column_values_to_be_between:
               min_value: 0
               max_value: 90
       - name: "availability_365"
+        description: "Disponibilidade para 365 dias"
         tests:
           - not_null
           - dbt_expectations.expect_column_values_to_be_between:
               min_value: 0
               max_value: 365
       - name: "calendar_last_scraped"
+        description: "Data da última raspagem do calendário"
         tests:
           - not_null
       - name: "number_of_reviews"
+        description: "Número de avaliação"
         tests:
           - not_null
       - name: "number_of_reviews_ltm"
+        description: "Número de avaliação no último mês"
         tests:
           - not_null
       - name: "number_of_reviews_l30d"
+        description: "Número de avaliação nos últimos 30 dias"
         tests:
           - not_null
       - name: "first_review"
+        description: "Primeira avaliação"
       - name: "last_review"
+        description: "Última avaliação"
       - name: "review_scores_rating"
+        description: "Avaliação dos avaliação"
         tests:
           - not_null
           - dbt_expectations.expect_column_values_to_be_between:
               min_value: 0
               max_value: 5
       - name: "review_scores_accuracy"
+        description: "Precisão dos avaliação"
         tests:
           - not_null
           - dbt_expectations.expect_column_values_to_be_between:
               min_value: 0
               max_value: 5
       - name: "review_scores_cleanliness"
+        description: "Limpeza dos avaliação"
         tests:
           - not_null
           - dbt_expectations.expect_column_values_to_be_between:
               min_value: 0
               max_value: 5
       - name: "review_scores_checkin"
+        description: "Check-in dos avaliação"
         tests:
           - not_null
           - dbt_expectations.expect_column_values_to_be_between:
               min_value: 0
               max_value: 5
       - name: "review_scores_communication"
+        description: "Comunicação dos avaliação"
         tests:
           - not_null
           - dbt_expectations.expect_column_values_to_be_between:
               min_value: 0
               max_value: 5
       - name: "review_scores_location"
+        description: "Localização dos avaliação"
         tests:
           - not_null
           - dbt_expectations.expect_column_values_to_be_between:
               min_value: 0
               max_value: 5
       - name: "review_scores_value"
+        description: "Valor dos avaliação"
         tests:
           - not_null
           - dbt_expectations.expect_column_values_to_be_between:
               min_value: 0
               max_value: 5
       - name: "instant_bookable"
+        description: "Reserva instantânea"
         tests:
           - not_null
       - name: "calculated_host_listings_count"
+        description: "Número de imóveis do proprietário"
         tests:
           - not_null
           - check_value_less_than_or_equal_zero
       - name: "calculated_host_listings_count_entire_homes"
+        description: "Número de imóveis do proprietário"
         tests:
           - not_null
           - check_value_less_than_zero
       - name: "calculated_host_listings_count_private_rooms"
+        description: "Número de imóveis do proprietário"
         tests:
           - not_null
           - check_value_less_than_zero
       - name: "calculated_host_listings_count_shared_rooms"
+        description: "Número de imóveis do proprietário"
         tests:
           - not_null
           - check_value_less_than_zero
       - name: "reviews_per_month"
+        description: "Avaliações por mês"
         tests:
           - check_value_less_than_zero
       - name: "created_at"
+        description: "Data de criação do registro desse imóvel"
         tests:
           - not_null
   - name: 2_reviews_silver
+    description: "Camada silver da tabela reviews"
     database: BD_AIRBNB
     schema: public
     columns:
       - name: "listing_id"
+        description: "Identificador do imóvel"
         tests:
           - not_null
       - name: "review_id"
+        description: "Identificador da avaliação"
         tests:
           - not_null
           - unique
       - name: "review_date"
+        description: "Data da avaliação"
         tests:
           - not_null
       - name: "reviewer_id"
+        description: "Identificador do avaliador"
         tests:
           - not_null
       - name: "reviewer_name"
+        description: "Nome do avaliador"
         tests:
           - not_null
       - name: "comments"
+        description: "Comentários"
       - name: "created_at"
+        description: "Data de criação do registro da avaliação"
         tests:
           - not_null
