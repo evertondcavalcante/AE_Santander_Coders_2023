@@ -1,6 +1,3 @@
-{{ 
-    config(order=6) 
-}}
 with dados_bronze as (
     select * from {{ source('dados_bronze', 'reviews_bronze') }}
 ),

@@ -1,8 +1,5 @@
-{{ 
-    config(order=3) 
-}}
 with dados_stage as (
-    select * from {{ source('dados_stage', 'reviews_stage') }}
+    select * from {{ source('dados_stage', 'listings_stage') }}
 ),
 final as (
     select distinct *

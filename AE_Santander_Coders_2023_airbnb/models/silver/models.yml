@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: calendar_silver
+  - name: 2_calendar_silver
     database: BD_AIRBNB
     schema: public
     columns:
@@ -29,7 +29,7 @@ models:
       - name: "created_at"
         tests:
           - not_null
-  - name: listings_silver
+  - name: 2_listings_silver
     database: BD_AIRBNB
     schema: public
     columns:
@@ -199,36 +199,43 @@ models:
       - name: "last_review"
       - name: "review_scores_rating"
         tests:
+          - not_null
           - dbt_expectations.expect_column_values_to_be_between:
               min_value: 0
               max_value: 5
       - name: "review_scores_accuracy"
         tests:
+          - not_null
           - dbt_expectations.expect_column_values_to_be_between:
               min_value: 0
               max_value: 5
       - name: "review_scores_cleanliness"
         tests:
+          - not_null
           - dbt_expectations.expect_column_values_to_be_between:
               min_value: 0
               max_value: 5
       - name: "review_scores_checkin"
         tests:
+          - not_null
           - dbt_expectations.expect_column_values_to_be_between:
               min_value: 0
               max_value: 5
       - name: "review_scores_communication"
         tests:
+          - not_null
           - dbt_expectations.expect_column_values_to_be_between:
               min_value: 0
               max_value: 5
       - name: "review_scores_location"
         tests:
+          - not_null
           - dbt_expectations.expect_column_values_to_be_between:
               min_value: 0
               max_value: 5
       - name: "review_scores_value"
         tests:
+          - not_null
           - dbt_expectations.expect_column_values_to_be_between:
               min_value: 0
               max_value: 5
@@ -257,7 +264,7 @@ models:
       - name: "created_at"
         tests:
           - not_null
-  - name: reviews_silver
+  - name: 2_reviews_silver
     database: BD_AIRBNB
     schema: public
     columns:

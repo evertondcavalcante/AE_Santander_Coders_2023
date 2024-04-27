@@ -1,8 +1,5 @@
-{{ 
-    config(order=5) 
-}}
 with dados_bronze as (
-    select * from {{ source('dados_bronze', 'listings_bronze') }}
+    select * from {{ source('dados_bronze', '1_listings_bronze') }}
 ),
 final as (
     SELECT id::bigint as id

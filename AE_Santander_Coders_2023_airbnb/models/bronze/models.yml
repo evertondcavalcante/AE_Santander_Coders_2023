@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: calendar_bronze
+  - name: 1_calendar_bronze
     database: BD_AIRBNB
     schema: public
     columns:
@@ -13,7 +13,7 @@ models:
       - name: "minimum_nights"
       - name: "maximum_nights"
       - name: "created_at"
-  - name: listings_bronze
+  - name: 1_listings_bronze
     database: BD_AIRBNB
     schema: public
     columns:
@@ -93,7 +93,7 @@ models:
       - name: "calculated_host_listings_count_shared_rooms"
       - name: "reviews_per_month"
       - name: "created_at"
-  - name: reviews_bronze
+  - name: 1_reviews_bronze
     database: BD_AIRBNB
     schema: public
     columns:
