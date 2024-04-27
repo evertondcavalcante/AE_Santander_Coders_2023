@@ -2,9 +2,13 @@ version: 2
 
 sources:
   - name: dados_stage
+    description: "Dados do Airbnb"
     database: BD_AIRBNB
     schema: public
     tables:
       - name: calendar_stage
+        description: "Tabela com os dados de disponibilidade dos imóveis"
       - name: listings_stage
+        description: "Tabela com os dados dos imóveis"
       - name: reviews_stage
+        description: "Tabela com os dados de reviews dos imóveis"

@@ -2,9 +2,13 @@ version: 2
 
 sources:
   - name: dados_bronze
+    description: "Dados do Airbnb carregados na camada bronze"
     database: BD_AIRBNB
     schema: public
     tables:
       - name: 1_calendar_bronze
+        description: "Camada bronze da tabela calendar"
       - name: 1_listings_bronze
+        description: "Camada bronze da tabela listings"
       - name: 1_reviews_bronze
+        description: "Camada bronze da tabela reviews"
