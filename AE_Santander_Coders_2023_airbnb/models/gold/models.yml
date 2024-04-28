@@ -1,0 +1,162 @@
+version: 2
+
+models:
+  - name: 3_high_value_copacabana_listings_gold
+    description: "Tabela da camada gold com a disponibilidade dos imóveis com alto valor (acima de $1.000) no bairro de Copacabana"
+    database: BD_AIRBNB
+    schema: public
+    columns:
+      - name: "listing_id"
+        description: "Identificador do imóvel"
+        tests:
+          - not_null
+      - name: "date"
+        description: "Data da disponibilidade"
+        tests:
+          - not_null
+      - name: "available"
+      - name: "price"
+        description: "Preço da diária"
+        tests:
+          - not_null
+          - check_value_less_than_or_equal_zero
+      - name: "minimum_nights"
+        description: "Número mínimo de noites"
+        tests:
+          - not_null
+          - check_value_less_than_or_equal_zero
+      - name: "maximum_nights"
+        description: "Número máximo de noites"
+        tests:
+          - not_null
+          - check_value_less_than_or_equal_zero
+      - name: "listing_url"
+        description: "URL do imóvel no site"
+        tests:
+          - not_null
+      - name: "name"
+        description: "Nome do imóvel"
+        tests:
+          - not_null
+      - name: "host_name"
+        description: "Nome do proprietário"
+        tests:
+          - not_null
+      - name: "accommodates"
+        description: "Capacidade de acomodação"
+        tests:
+          - not_null
+          - check_value_less_than_or_equal_zero
+          - name: "bathrooms_text"
+        description: "Número de banheiros no formato de texto"
+        tests:
+          - not_null
+      - name: "beds"
+        description: "Número de camas"
+        tests:
+          - not_null
+          - check_value_less_than_zero
+  - name: 3_low_score_rating_listings_gold
+    description: "Tabela da camada gold com o último ano de reviews de todos os imóveis com avaliação abaixo de 3 estrelas"
+    database: BD_AIRBNB
+    schema: public
+    columns:
+      - name: "listing_id"
+        description: "Identificador do imóvel"
+        tests:
+          - not_null
+      - name: "review_id"
+        description: "Identificador do review"
+        tests:
+          - not_null
+          - unique
+      - name: "review_date"
+        description: "Data da review"
+        tests:
+          - not_null
+      - name: "comments"
+        description: "Comentários acerca da nota dada no review"
+        tests:
+          - not_null
+      - name: "review_scores_rating"
+        description: "Avaliação dos avaliação"
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_between:
+              min_value: 0
+              max_value: 5
+      - name: "review_scores_accuracy"
+        description: "Precisão dos avaliação"
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_between:
+              min_value: 0
+              max_value: 5
+      - name: "review_scores_cleanliness"
+        description: "Limpeza dos avaliação"
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_between:
+              min_value: 0
+              max_value: 5
+      - name: "review_scores_checkin"
+        description: "Check-in dos avaliação"
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_between:
+              min_value: 0
+              max_value: 5
+      - name: "review_scores_communication"
+        description: "Comunicação dos avaliação"
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_between:
+              min_value: 0
+              max_value: 5
+      - name: "review_scores_location"
+        description: "Localização dos avaliação"
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_between:
+              min_value: 0
+              max_value: 5
+      - name: "review_scores_value"
+        description: "Valor dos avaliação"
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_between:
+              min_value: 0
+              max_value: 5
+  - name: 3_overview_listings_price_neighbourhood_rating_gold
+    description: "Tabela da camada gold com a sumarização dos imóveis disponível por preço e avaliação"
+    database: BD_AIRBNB
+    schema: public
+    columns:
+      - name: "neighbourhood_cleansed"
+        description: "Bairro do imóvel"
+        tests:
+          - not_null
+      - name: "classificacao_imovel"
+        description: "Descritivo da classificação do imóvel"
+        tests:
+          - not_null
+      - name: "qtd_imoveis"
+        description: "Quantidade total de imóveis"
+        tests:
+          - not_null
+          - check_value_less_than_zero
+      - name: "preco_medio"
+        description: "Média dos preços dos imóveis"
+        tests:
+          - not_null
+          - check_value_less_than_zero
+      - name: "preco_teto"
+        description: "Maior preço encontrado para um imóvel"
+        tests:
+          - not_null
+          - check_value_less_than_zero
+      - name: "preco_minimo"
+        description: "Menor preço encontrado para um imóvel"
+        tests:
+          - not_null
+          - check_value_less_than_zero

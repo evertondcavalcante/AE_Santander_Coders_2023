@@ -1,5 +1,5 @@
 with dados_bronze as (
-    select * from {{ source('dados_bronze', 'reviews_bronze') }}
+    select * from {{ source('dados_bronze', '1_reviews_bronze') }}
 ),
 final as (
     SELECT listing_id::bigint as listing_id

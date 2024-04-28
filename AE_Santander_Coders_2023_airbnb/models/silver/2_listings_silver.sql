@@ -36,15 +36,15 @@ final as (
         , accommodates::int as accommodates
         , bathrooms_text
         , beds::int as beds
-        , replace(replace(replace(price,'$',''),',',''),'N/A',null)::float price
+        , replace(replace(price,'$',''),',','')::float price
         , minimum_nights::int as minimum_nights
         , maximum_nights::int as maximum_nights
         , minimum_minimum_nights::int as minimum_minimum_nights
         , maximum_minimum_nights::int as maximum_minimum_nights
         , minimum_maximum_nights::int as minimum_maximum_nights
         , maximum_maximum_nights::int as maximum_maximum_nights
-        , replace(minimum_nights_avg_ntm,'N/A',null)::float as minimum_nights_avg_ntm
-        , replace(maximum_nights_avg_ntm,'N/A',null)::float as maximum_nights_avg_ntm
+        , minimum_nights_avg_ntm::float as minimum_nights_avg_ntm
+        , maximum_nights_avg_ntm::float as maximum_nights_avg_ntm
         , has_availability::boolean as has_availability
         , availability_30::int as availability_30
         , availability_60::int as availability_60
@@ -56,19 +56,19 @@ final as (
         , number_of_reviews_l30d::int as number_of_reviews_l30d
         , first_review::timestamp as first_review
         , last_review::timestamp as last_review
-        , replace(review_scores_rating,'N/A',null)::float as review_scores_rating
-        , replace(review_scores_accuracy,'N/A',null)::float review_scores_accuracy
-        , replace(review_scores_cleanliness,'N/A',null)::float as review_scores_cleanliness
-        , replace(review_scores_checkin,'N/A',null)::float as review_scores_checkin
-        , replace(review_scores_communication,'N/A',null)::float as review_scores_communication
-        , replace(review_scores_location,'N/A',null)::float as review_scores_location
-        , replace(review_scores_value,'N/A',null)::float as review_scores_value
+        , review_scores_rating::float as review_scores_rating
+        , review_scores_accuracy::float review_scores_accuracy
+        , review_scores_cleanliness::float as review_scores_cleanliness
+        , review_scores_checkin::float as review_scores_checkin
+        , review_scores_communication::float as review_scores_communication
+        , review_scores_location::float as review_scores_location
+        , review_scores_value::float as review_scores_value
         , instant_bookable::boolean as instant_bookable
         , calculated_host_listings_count::int as calculated_host_listings_count
         , calculated_host_listings_count_entire_homes::int as calculated_host_listings_count_entire_homes
         , calculated_host_listings_count_private_rooms::int as calculated_host_listings_count_private_rooms
         , calculated_host_listings_count_shared_rooms::int as calculated_host_listings_count_shared_rooms
-        , replace(reviews_per_month,'N/A',null)::float as reviews_per_month
+        , reviews_per_month::float as reviews_per_month
         , created_at
     from dados_bronze
     
