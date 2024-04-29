@@ -336,7 +336,7 @@ models:
         description: "Bairro do imóvel"
         tests:
           - not_null
-      - name: "price"
+      - name: "avg_price"
         description: "Preço da diária"
         tests:
           - not_null

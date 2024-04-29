@@ -6,7 +6,7 @@ dados_reviews_silver AS (
 ),
 tendencias_satisfacao AS (
     SELECT 
-        DATE_TRUNC('month', a.review_date) AS month,
+        EXTRACT('month' from a.review_date) AS month,
         COUNT(*) AS total_reviews,
         AVG(b.review_scores_rating) AS average_rating,
         AVG(b.review_scores_accuracy) AS average_accuracy,
