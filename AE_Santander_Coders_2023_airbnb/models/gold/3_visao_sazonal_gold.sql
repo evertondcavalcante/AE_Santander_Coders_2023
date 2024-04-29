@@ -1,5 +1,5 @@
 --visão que agregue os dados por mês, mostrando o número total de noites disponíveis, 
---a média de preços por noite e o número médio de noites mínimas exigidas pelos anfitriões
+--a média de preços por noite e o número médio de noites mínimas exigidas pelos anfitriões por bairro
 WITH dados_listings_silver AS (
     SELECT * FROM {{ source('dados_silver', '2_listings_silver') }}
 ),
@@ -7,7 +7,7 @@ dados_calendar_silver AS (
     SELECT * FROM {{ source('dados_silver', '2_calendar_silver') }}
 ),
 visao_sazonal AS (
-    SELECT 
+    SELECT b.neighbourhood_cleansed,
         EXTRACT(YEAR FROM a.date) AS year,
         EXTRACT(MONTH FROM a.date) AS month,
         COUNT(*) AS total_nights_available,
@@ -17,13 +17,11 @@ visao_sazonal AS (
     INNER JOIN dados_listings_silver b
         ON a.listing_id = b.id
     WHERE a.available = true
-        AND UPPER(b.neighbourhood_cleansed) = 'COPACABANA'
-        AND a.price >= 1000
         AND b.host_name IS NOT NULL
         AND a.minimum_nights IS NOT NULL
         AND b.maximum_nights IS NOT NULL
-    GROUP BY year, month
-    ORDER BY year, month
+    GROUP BY year, month, b.neighbourhood_cleansed
+    ORDER BY year, month, b.neighbourhood_cleansed
 )
 
-SELECT * FROM visao_sazonal;
+SELECT * FROM visao_sazonal

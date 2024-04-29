@@ -1,4 +1,3 @@
--- visão da análise de tendências de satisfação do cliente ao longo do tempo
 WITH dados_listings_silver AS (
     SELECT * FROM {{ source('dados_silver', '2_listings_silver') }}
 ),
@@ -27,4 +26,4 @@ tendencias_satisfacao AS (
     ORDER BY month
 )
 
-SELECT * FROM tendencias_satisfacao;
+SELECT * FROM tendencias_satisfacao

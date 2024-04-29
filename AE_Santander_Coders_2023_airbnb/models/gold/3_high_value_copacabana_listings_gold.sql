@@ -15,7 +15,7 @@ final as (
         , b.host_name
         , b.accommodates
         , b.bathrooms_text
-        , b.beds
+        , COALESCE(b.beds,0) beds
     from dados_calendar_silver a
     inner join dados_listings_silver b
         on a.listing_id = b.id

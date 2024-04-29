@@ -1,4 +1,3 @@
---visão da análise da distribuição de tipos de propriedades em diferentes bairros.
 WITH dados_listings_silver AS (
     SELECT * FROM {{ source('dados_silver', '2_listings_silver') }}
 ),
@@ -15,4 +14,4 @@ distribuicao_tipos_imoveis AS (
     ORDER BY neighbourhood_cleansed, property_type
 )
 
-SELECT * FROM distribuicao_tipos_imoveis;
+SELECT * FROM distribuicao_tipos_imoveis
