@@ -306,7 +306,7 @@ models:
         tests:
           - not_null
           - check_value_less_than_or_equal_zero
-    - name: 3_host_response_time_gold
+  - name: 3_host_response_time_gold
     description: "Tabela da camada gold com a distribuição dos tempos de resposta do host em relação às solicitações de reserva"
     database: BD_AIRBNB
     schema: public
@@ -315,18 +315,18 @@ models:
         description: "Tempo de resposta do host"
         tests:
           - not_null
-          - name: response_within_an_hour
-            description: "Verificar se o tempo de resposta é dentro de uma hora"
-            clause: response_time LIKE '%within an hour%'
-          - name: response_within_a_few_hours
-            description: "Verificar se o tempo de resposta é dentro de algumas horas"
-            clause: response_time LIKE '%within a few hours%'
-          - name: response_within_a_day
-            description: "Verificar se o tempo de resposta é dentro de um dia"
-            clause: response_time LIKE '%within a day%'
-          - name: response_a_few_days_or_more
-            description: "Verificar se o tempo de resposta é de alguns dias ou mais"
-            clause: response_time LIKE '%a few days or more%'
+      - name: response_within_an_hour
+        description: "Verificar se o tempo de resposta é dentro de uma hora"
+        clause: response_time LIKE '%within an hour%'
+      - name: response_within_a_few_hours
+        description: "Verificar se o tempo de resposta é dentro de algumas horas"
+        clause: response_time LIKE '%within a few hours%'
+      - name: response_within_a_day
+        description: "Verificar se o tempo de resposta é dentro de um dia"
+        clause: response_time LIKE '%within a day%'
+      - name: response_a_few_days_or_more
+        description: "Verificar se o tempo de resposta é de alguns dias ou mais"
+        clause: response_time LIKE '%a few days or more%'
   - name: 3_neighborhood_avarage_prices_gold
     description: "Tabela da camada gold para calcular o preço médio por bairro"
     database: BD_AIRBNB
