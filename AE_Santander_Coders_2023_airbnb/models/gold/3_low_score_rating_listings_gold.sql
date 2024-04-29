@@ -22,6 +22,7 @@ final as (
     where review_date >= now() -interval '1 year'
         and b.review_scores_rating <= 3
         and b.review_scores_rating is not null
+        and coalesce(b.number_of_reviews,0) > 0
 )
 
 select * from final

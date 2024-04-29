@@ -1,0 +1,14 @@
+version: 2
+
+sources:
+  - name: dados_silver_2
+    description: "Dados do Airbnb carregados na camada silver"
+    database: BD_AIRBNB
+    schema: public
+    tables:
+      - name: 2_calendar_silver
+        description: "Camada silver da tabela calendar"
+      - name: 2_listings_silver
+        description: "Camada silver da tabela listings"
+      - name: 2_reviews_silver
+        description: "Camada silver da tabela reviews"

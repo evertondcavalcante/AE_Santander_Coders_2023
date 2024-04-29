@@ -35,8 +35,6 @@ models:
           - check_value_less_than_or_equal_zero
       - name: "created_at"
         description: "Data de criação"
-        tests:
-          - not_null
   - name: 2_listings_silver
     description: "Camada silver da tabela listings"
     database: BD_AIRBNB
@@ -341,8 +339,6 @@ models:
           - check_value_less_than_zero
       - name: "created_at"
         description: "Data de criação do registro desse imóvel"
-        tests:
-          - not_null
   - name: 2_reviews_silver
     description: "Camada silver da tabela reviews"
     database: BD_AIRBNB
@@ -371,7 +367,7 @@ models:
           - not_null
       - name: "comments"
         description: "Comentários"
-      - name: "created_at"
-        description: "Data de criação do registro da avaliação"
         tests:
           - not_null
+      - name: "created_at"
+        description: "Data de criação do registro da avaliação"

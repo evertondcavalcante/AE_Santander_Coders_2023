@@ -57,7 +57,7 @@ models:
           - not_null
           - check_value_less_than_zero
   - name: 3_low_score_rating_listings_gold
-    description: "Tabela da camada gold com o último ano de reviews de todos os imóveis com avaliação abaixo de 3 estrelas"
+    description: "Tabela da camada gold com o último ano de reviews de todos os imóveis com avaliação de até 3 estrelas"
     database: BD_AIRBNB
     schema: public
     columns:

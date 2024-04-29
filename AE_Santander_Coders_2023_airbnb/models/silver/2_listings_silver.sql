@@ -29,8 +29,8 @@ final as (
         , host_identity_verified::boolean as host_identity_verified
         , neighbourhood
         , neighbourhood_cleansed
-        , replace(latitude,'N/A',null)::float as latitude
-        , replace(longitude,'N/A',null)::float as longitude
+        , latitude::float as latitude
+        , longitude::float as longitude
         , property_type
         , room_type
         , accommodates::int as accommodates
