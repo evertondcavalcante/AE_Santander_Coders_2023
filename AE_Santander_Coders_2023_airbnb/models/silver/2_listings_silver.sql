@@ -36,6 +36,7 @@ final as (
         , accommodates::int as accommodates
         , bathrooms_text
         , beds::int as beds
+        , amenities
         , replace(replace(price,'$',''),',','')::float price
         , minimum_nights::int as minimum_nights
         , maximum_nights::int as maximum_nights

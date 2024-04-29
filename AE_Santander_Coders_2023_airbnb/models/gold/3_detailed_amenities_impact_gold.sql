@@ -1,7 +1,7 @@
--- View to analyze the impact of amenities on booking rates and pricing
--- across different neighborhoods in the Airbnb listings from the silver layer.
-
-WITH base_data AS (
+WITH dados_listings_silver AS (
+    SELECT * FROM {{ source('dados_silver', '2_listings_silver') }}
+)
+, base_data AS (
     SELECT
         id AS listing_id,
         neighbourhood_cleansed,
@@ -9,13 +9,11 @@ WITH base_data AS (
         price,
         number_of_reviews,
         has_availability
-    FROM {{ source('dados_silver', '2_listings_silver') }}
-    WHERE has_availability = 'true'
-),
-
-amenities_analysis AS (
-    SELECT
-        neighbourhood_cleansed,
+    FROM dados_listings_silver
+    WHERE has_availability = True
+)
+, amenities_analysis AS (
+    SELECT neighbourhood_cleansed,
         STRING_AGG(DISTINCT amenities, ', ') AS combined_amenities,
         AVG(price) AS average_price,
         COUNT(listing_id) AS total_listings,
@@ -25,10 +23,5 @@ amenities_analysis AS (
     ORDER BY average_price DESC
 )
 
-SELECT
-    neighbourhood_cleansed,
-    combined_amenities,
-    average_price,
-    total_listings,
-    total_reviews
+SELECT *
 FROM amenities_analysis

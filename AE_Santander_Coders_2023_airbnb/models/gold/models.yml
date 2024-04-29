@@ -278,5 +278,34 @@ models:
         tests:
           - not_null
           - check_value_less_than_or_equal_zero
+  - name: "3_detailed_amenities_impact_gold"
+    description: "Tabela com a análise do impacto das comodidades nas tarifas e preços de reserva entre diferentes bairros"
+    database: BD_AIRBNB
+    schema: public
+    columns:
+      - name: "neighbourhood_cleansed"
+        description: "Bairro do imóvel"
+        tests:
+          - not_null
+      - name: "combined_amenities"
+        description: "Comodidades agrupadas"
+        tests:
+          - not_null
+      - name: "average_price"
+        description: "Preço médio da diária"
+        tests:
+          - not_null
+          - check_value_less_than_or_equal_zero
+      - name: "total_listings"
+        description: "Quantidade total de imóveis"
+        tests:
+          - not_null
+          - check_value_less_than_or_equal_zero
+      - name: "total_reviews"
+        description: "Quantidade total de avaliações"
+        tests:
+          - not_null
+          - check_value_less_than_or_equal_zero
+      
 
 
