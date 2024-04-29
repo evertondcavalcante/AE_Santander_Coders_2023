@@ -163,6 +163,8 @@ models:
         tests:
           - not_null
           - check_value_less_than_zero
+      - name: "amenities"
+        description: "Comodidades"
       - name: "price"
         description: "Preço"
         tests:

@@ -93,6 +93,8 @@ models:
         description: "Número de banheiros no formato de texto"
       - name: "beds"
         description: "Número de camas"
+      - name: "amenities"
+        description: "Comodidades"
       - name: "price"
         description: "Preço"
       - name: "minimum_nights"
